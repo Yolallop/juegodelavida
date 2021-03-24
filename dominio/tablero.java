@@ -13,7 +13,7 @@ import java.io.IOException;
 	 * fichero en forma de ceros y unos, ir transitando de
 	 * estados e ir mostrando dichos estados.
 	 */
-
+	 
 public class tablero {
 
 	private int DIMENSION = 32;
@@ -26,6 +26,8 @@ public class tablero {
 	 * en ‘estadoActual‘ y, utilizando las reglas del juego
 	 * de la vida, se insertan los ceros y unos
 	 * correspondientes en ‘estadoSiguiente‘.
+	 * Complejidad espacial: constante 
+	 * Compejidad temporal: 0(n)
 	 */
 	
 
@@ -36,7 +38,7 @@ public class tablero {
 		
 
 		try {
-			File ficherodatos = new File("matriz.txt");
+			File ficherodatos = new File("matriz");
 
 			Scanner fichero = new Scanner(ficherodatos);
 			String line = "";
@@ -72,6 +74,8 @@ public class tablero {
 		 *en ‘estadoActual‘ y, utilizando las reglas del juego
 		 * de la vida, se insertan los ceros y unos
 		 *correspondientes en ‘estadoSiguiente‘.
+		 * Complejidad espacial: constante 
+		 * Compejidad temporal : 0(n^2)
 		 */
 
 	public void generarEstadoActualPorMontecarlo() {
@@ -105,6 +109,8 @@ public class tablero {
 	/**La variable ‘estadoActual‘ pasa a tener el contenido
 	* de ‘estadoSiguiente‘ y, éste útimo atributo pasar a
   	*reflejar el siguiente estado.
+  	* * Complejidad espacial constante 
+	 * Compejidad temporal 0(n^2)
   	*/
 
 
@@ -116,7 +122,7 @@ public class tablero {
 				estadoSiguiente[i][j] = estadoActual[i][j];
 				if (estadoActual[i - 1][j] == 1) {
 					vecinasvivas++;
-				} // inc para contar-
+				} 
 				if (estadoActual[i][j + 1] == 1) {
 					vecinasvivas++;
 				}
@@ -168,7 +174,7 @@ public class tablero {
 	public String toString() {
 
 		String abc = "\n *** TABLERO ***\n";
-		// cabecera
+	
 
 		for (int i = 0; i < DIMENSION; i++) {
 			for (int j = 0; j < DIMENSION; j++) {
